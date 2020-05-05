@@ -1,6 +1,8 @@
-import encryption_key
+import encryption_key  # My
 import random
 
+
+#  Convert pair letters to number
 def letter2num(message, key):
     if len(message) % 2 == 1:
         message += ' '
@@ -11,8 +13,9 @@ def letter2num(message, key):
     return out
 
 
+#  This make directory with encrypted data section and unencrypted len part
 def num_multiplication(message):
-    last2num = [None,None,None]
+    last2num = [None, None, None]
     multiplication_len = []
     multiplication_var = ''
     for index, num in enumerate(message):
@@ -28,16 +31,12 @@ def num_multiplication(message):
     return encrypted
 
 
+#  Converting len part with static key
 def len_encryption(length):
     out = ''
     for char in length:
         out = out + encryption_key.key_encryption_dictionary[char][random.randint(0, 19)]
     return out
-#def num2letter (num):
-#   if type(num) == list:
-#       for i in num:
-
-
 
 
 def multiplication_and_key(first,second,key):

@@ -1,3 +1,4 @@
+# This function using change_polish_character function and convert polish to english sentence
 def change_polish_series(sentence):
     series = ''
     for letter in sentence:

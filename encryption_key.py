@@ -3,6 +3,7 @@ import math
 import string
 
 
+# This generate dictionary for all chars
 def make_encryption_dictionary(seed):
     # Generate alphabet and numbers dictionary with 0 argument
     dictionary = dict.fromkeys(string.ascii_lowercase, 0)
@@ -68,6 +69,7 @@ def make_reverse_dictionary(dictionary):
     return out
 
 
+#  This is special directories to make encrypting len key
 key_encryption_dictionary = {
     '5': [',w?+ks]', 'Qv9ZxUl', 'M$2jL-#', '<s=W4Qg', 'hT/vQ}#',
           'A-(h,wG', '>Q-XTlG', 'u^H*wO1', '0vIIOQD', 'ugF]y1$',

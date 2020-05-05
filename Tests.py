@@ -1,4 +1,2 @@
-import random
-
-for i in range(11):
-    print(random.randint(10, 99))
+print('aaaa')
+print(chr(27) + '[2j')
