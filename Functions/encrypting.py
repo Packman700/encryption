@@ -1,4 +1,4 @@
-import encryption_key  # My
+from Functions import encryption_key
 import random
 
 

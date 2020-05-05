@@ -1,6 +1,4 @@
-import polish_changer as pc  # My
-import encryption_key  # My
-import encrypting  # My
+from Functions import encryption_key, polish_changer as pc, encrypting
 import pyperclip  # Coping directory
 
 
@@ -12,6 +10,7 @@ def encryption_procedure():
 
     #  Encrypting
     key = encryption_key.make_encryption_dictionary(entered_seed)  # make key
+    print(key)
 
     massage_to_encrypt = encrypting.letter2num(massage_to_encrypt, key)  # change letters to numbers
     encrypted_message = encrypting.num_multiplication(massage_to_encrypt)  # using encryption method
@@ -27,14 +26,14 @@ def encryption_procedure():
 
     if chose == '1':  # Copy to clipboard
         pyperclip.copy(
-            str(encrypted_message['encrypted_message']) + ' ' + str(encrypted_message['length']))  # Copy to clipboard
+            str(encrypted_message['encrypted_message']) + ' ' + str(encrypted_message['length']) + ' ' + str(entered_seed))  # Copy to clipboard
         spam = pyperclip.paste()
         print('-----------------------')
         print('Massage copied to clipboard')
 
     elif chose == '2':  # File save
         result = open('Encryption.txt','w')
-        result.write(str(encrypted_message['encrypted_message']) + ' ' + str(encrypted_message['length']))
+        result.write(str(encrypted_message['encrypted_message']) + ' ' + str(encrypted_message['length']) + ' ' + str(entered_seed))
         result.close()
         print('-----------------------')
         print('Successful save')

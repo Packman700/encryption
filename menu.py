@@ -1,4 +1,5 @@
 import encryption_procedure
+import decryption_procedure
 import os
 
 print('     ENCRYPTION APP     \n'
@@ -6,12 +7,12 @@ print('     ENCRYPTION APP     \n'
       'Chose operation:        \n'
       '1.Encryption            \n'
       '2.Decryption            ')
-
 chose = str(input('Your chose: '))
 print('-----------------------')
+
 if chose == '1':
     encryption_procedure.encryption_procedure()
 elif chose == '2':
-    print('Jeszcze nie mam')
+    decryption_procedure.decryption_procedure()
 else:
     os.system('cls')
