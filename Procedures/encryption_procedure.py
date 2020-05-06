@@ -5,7 +5,7 @@ import pyperclip  # Coping directory
 #  This is all what you need to encryption data
 def encryption_procedure():
     #  Input data
-    massage_to_encrypt = pc.change_polish_series(input('Enter massage to encrypt: ').lower())  # entering message
+    massage_to_encrypt = pc.change_polish_series(input('Enter massage to encrypt: '))  # entering message
     entered_seed = int(input('Enter seed: '))
 
     #  Encrypting

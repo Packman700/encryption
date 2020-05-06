@@ -1,5 +1,4 @@
-import encryption_procedure
-import decryption_procedure
+from Procedures import decryption_procedure, encryption_procedure
 import os
 
 print('     ENCRYPTION APP     \n'

@@ -16,4 +16,14 @@ def change_polish_character(character):
     if character == 'ś': return 's'
     if character == 'ż': return 'z'
     if character == 'ź': return 'z'
+    if character == 'Ą': return 'A'
+    if character == 'Ć': return 'C'
+    if character == 'Ę': return 'E'
+    if character == 'Ł': return 'L'
+    if character == 'Ń': return 'N'
+    if character == 'Ó': return 'O'
+    if character == 'Ś': return 'S'
+    if character == 'Ż': return 'Z'
+    if character == 'Ź': return 'Z'
+
     return character
