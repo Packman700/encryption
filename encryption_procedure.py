@@ -10,7 +10,6 @@ def encryption_procedure():
 
     #  Encrypting
     key = encryption_key.make_encryption_dictionary(entered_seed)  # make key
-    print(key)
 
     massage_to_encrypt = encrypting.letter2num(massage_to_encrypt, key)  # change letters to numbers
     encrypted_message = encrypting.num_multiplication(massage_to_encrypt)  # using encryption method
@@ -30,6 +29,7 @@ def encryption_procedure():
         spam = pyperclip.paste()
         print('-----------------------')
         print('Massage copied to clipboard')
+        exit()
 
     elif chose == '2':  # File save
         result = open('Encryption.txt','w')
@@ -37,3 +37,4 @@ def encryption_procedure():
         result.close()
         print('-----------------------')
         print('Successful save')
+        exit()
