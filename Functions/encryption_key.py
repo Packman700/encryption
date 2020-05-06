@@ -42,6 +42,8 @@ def make_encryption_dictionary(seed):
         dictionary['?'] = 0
         dictionary['~'] = 0
         dictionary['`'] = 0
+        dictionary['„'] = 0
+        dictionary['”'] = 0
         dictionary[' '] = 0
 
     # Generate seed
