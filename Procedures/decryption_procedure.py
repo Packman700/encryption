@@ -1,6 +1,7 @@
 from pathlib import Path
-from Functions import decryption_prepare_data
+from Functions import decryption
 from Functions import encryption_key as encrypting
+from Functions import encryption_key
 import pyperclip  # Coping directory
 
 
@@ -25,18 +26,22 @@ def decryption_procedure():
             print("File doesn't exist")
             exit()
     # Encryption.txt
-    dict_message = decryption_prepare_data.prepare_data(data)
+    dict_message = decryption.prepare_data(data)  # Split data to 3 names
 
     #############
     key = encrypting.make_reverse_dictionary(
         encrypting.make_encryption_dictionary(int(dict_message['seed'])))  # Generate key
-    dict_message['length'] = decryption_prepare_data.len_decryption(dict_message['length'])  # Decode lenght
 
-    dict_message['message'] = decryption_prepare_data.split_data(dict_message['message'],
-                                                                 dict_message['length'])  # split message
+    len_key_temporary = encryption_key.len_encryption_dictionary(int(dict_message['seed']))  # Generate len key
+    len_key = decryption.reverse_list_of_dictionary(len_key_temporary)  # Reverse len key
 
-    dict_message['message'] = decryption_prepare_data.division_data(dict_message['message'])  # fist decode procedure
-    decode_message = (decryption_prepare_data.key_decoding(dict_message['message'], key))  # key decode message
+    dict_message['length'] = decryption.len_decryption(dict_message['length'], len_key)  # Decode lenght
+
+    dict_message['message'] = decryption.split_data(dict_message['message'],
+                                                    dict_message['length']['first'])  # split message
+
+    dict_message['message'] = decryption.division_data(dict_message['message'], dict_message['length']['second'])  # fist decode procedure
+    decode_message = (decryption.key_decoding(dict_message['message'], key))  # key decode message
 
     ####################
     print('-----------------------')

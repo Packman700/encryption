@@ -25,5 +25,4 @@ def change_polish_character(character):
     if character == 'Ś': return 'S'
     if character == 'Ż': return 'Z'
     if character == 'Ź': return 'Z'
-
     return character

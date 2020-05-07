@@ -1,4 +1,4 @@
-from Procedures import decryption_procedure, encryption_procedure
+from Procedures import encryption_procedure, decryption_procedure
 import os
 
 print('     ENCRYPTION APP     \n'
@@ -15,3 +15,4 @@ elif chose == '2':
     decryption_procedure.decryption_procedure()
 else:
     os.system('cls')
+

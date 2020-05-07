@@ -4,9 +4,9 @@ from Functions import encryption_key
 def prepare_data(data):
     split_message = data.split()
     dict_message = {
-        'message': str(int(split_message[0], 16)),
+        'message': split_message[0],
         'length': split_message[1],
-        'seed': str(int(split_message[2], 16))
+        'seed': split_message[2]
     }
     return dict_message
 
@@ -14,7 +14,7 @@ def prepare_data(data):
 def len_decryption(length):
     out = []
     one_num = ''
-    for index, character in enumerate(length):
+    for index , character in enumerate(length):
         one_num = one_num + character
         if index % 7 == 6:
             out.append(encryption_key.key_encryption_dictionary[str(one_num)])
@@ -30,7 +30,6 @@ def split_data(data,len):
         index += 1
         current_number = str(current_number) + str(number)
         if index % int(len[0]) == 0:
-            print(number)
             index = 0
             data_list.append(current_number)
             current_number = ''
@@ -54,8 +53,6 @@ def division_data(data):
 
 def key_decoding(data, key):
     out = ''
-    print(data)
-    print(key)
     for encryption_letter in data:
         out = str(out) + str(key[encryption_letter])
     return out

@@ -1,12 +1,12 @@
 from Functions import encryption_key, polish_changer as pc, encrypting
 import pyperclip  # Coping directory
-
+import random
 
 #  This is all what you need to encryption data
 def encryption_procedure():
     #  Input data
     massage_to_encrypt = pc.change_polish_series(input('Enter massage to encrypt: '))  # entering message
-    entered_seed = int(input('Enter seed: '))
+    entered_seed = random.randint(-100000000, 100000000)
 
     #  Encrypting
     key = encryption_key.make_encryption_dictionary(entered_seed)  # make key
@@ -14,7 +14,9 @@ def encryption_procedure():
     massage_to_encrypt = encrypting.letter2num(massage_to_encrypt, key)  # change letters to numbers
     encrypted_message = encrypting.num_multiplication(massage_to_encrypt)  # using encryption method
 
-    encrypted_message['length'] = encrypting.len_encryption(encrypted_message['length'])  # encrypting len key
+    len_dic = encryption_key.len_encryption_dictionary(entered_seed)  # create key for len
+
+    encrypted_message['length'] = encrypting.len_encryption(encrypted_message['length'], encrypted_message['key_length'], len_dic)  # encrypting len key
 
     #  Saving
     print('----------------------- \n'
