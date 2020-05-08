@@ -13,6 +13,13 @@ def letter2num(message, key):
     return out
 
 
+def chose_multiple_key(key, index):
+    if index == 0:
+        return key['last_encrypting'][random.randint(0,len(key['last_encrypting'])-1)]
+    else:
+        return key['more_encrypting'][random.randint(0,len(key['more_encrypting'])-1)]
+
+
 #  This make directory with encrypted data section and unencrypted len part
 def num_multiplication(message):
     last2num = [None, None, None, None]

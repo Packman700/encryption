@@ -1,3 +1,4 @@
+'''''''''
 # This function using change_polish_character function and convert polish to english sentence
 def change_polish_series(sentence):
     series = ''
@@ -26,3 +27,4 @@ def change_polish_character(character):
     if character == 'Ż': return 'Z'
     if character == 'Ź': return 'Z'
     return character
+'''

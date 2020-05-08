@@ -10,8 +10,28 @@ def make_encryption_dictionary(seed):
     dictionary.update(dict.fromkeys(string.punctuation, 0))
     dictionary.update(dict.fromkeys(string.digits, 0))
     dictionary.update(dict.fromkeys(string.whitespace, 0))
+    # This is just to organise code
+    if True:
+        dictionary['ą'] = 0
+        dictionary['ć'] = 0
+        dictionary['ę'] = 0
+        dictionary['ł'] = 0
+        dictionary['ń'] = 0
+        dictionary['ó'] = 0
+        dictionary['ś'] = 0
+        dictionary['ż'] = 0
+        dictionary['ź'] = 0
+        dictionary['Ą'] = 0
+        dictionary['Ć'] = 0
+        dictionary['Ę'] = 0
+        dictionary['Ł'] = 0
+        dictionary['Ń'] = 0
+        dictionary['Ó'] = 0
+        dictionary['Ś'] = 0
+        dictionary['Ż'] = 0
+        dictionary['Ź'] = 0
+
     '''
-    if True:  # This is just to organise code
         dictionary['!'] = 0
         dictionary['@'] = 0
         dictionary['#'] = 0
@@ -69,6 +89,28 @@ def make_reverse_dictionary(dictionary):
     for key, value in zip(dictionary.keys(), dictionary.values()):
         out[value] = key
     return out
+
+
+# This generate key if you need multiple encrypt
+def multiple_encryption_key(seed):
+    # Generate list of chars
+    chars = list(map(chr, range(59, 123))) + list(map(chr, range(33, 48)))
+    random.seed(((seed + 777) ** 2) / 0.1943)
+    # for safety
+    x = random.randint(1, len(chars)-1)
+    last_encrypting = [chars[x]]
+    chars.pop(x)
+    more_encrypting = [chars[x]]
+    chars.pop(x)
+
+    for char, in chars:
+        if random.choice([True, False]):
+            last_encrypting.append(char)
+        else:
+            more_encrypting.append(char)
+
+    keys = {'last_encrypting':last_encrypting,'more_encrypting':more_encrypting}
+    return keys
 
 
 #  This made len dictionary
