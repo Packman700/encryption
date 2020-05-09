@@ -1,4 +1,40 @@
 from Functions import encryption_key
+from pathlib import Path
+
+
+def enter_data():
+    print('How did you want load data?       \n'
+          '1.Paste (all data)                \n' 
+          '1.Paste (separately data and seed)\n' 
+          '3.File                             \n')
+    chose = str(input('Your chose: '))
+
+    if chose == '1':  # Paste
+        data = input('Enter text: ')
+
+    if chose == '2':  # Paste
+        data_text = input('Enter data: ')
+        data_key = input('Enter key: ')
+        data = str(data_text).lstrip() + ' ' + str(data_key).lstrip()
+
+    if chose == '3':  # File
+        path = input('Enter the path: ')
+        file_ex = Path(path)
+        if file_ex.is_file():
+            file = open(path, 'r')
+            line = str(file.readline())
+            if line.split()[0] == 'Message:':
+                data_text = str(line.split()[1]) + ' ' + str(line.split()[2])
+                data_key = file.readline().split()[1]
+                data = str(data_text).lstrip() + ' ' + str(data_key).lstrip()
+            else:
+                data = line
+
+            file.close()
+        else:
+            print("File doesn't exist")
+            exit()
+    return data
 
 
 def prepare_data(data):

@@ -1,4 +1,3 @@
-from pathlib import Path
 from Functions import decryption
 from Functions import encryption_key as encrypting
 from Functions import encryption_key
@@ -6,29 +5,8 @@ import pyperclip  # Coping directory
 
 
 def decryption_procedure():
-    print('How did you want load data?      \n'
-          '1.Paste                          \n'
-          '2.File                            ')
-    chose = str(input('Your chose: '))
+    dict_message = decryption.prepare_data(decryption.enter_data())  # Enter data and Split data to 3 names
 
-    if chose == '1':  # Paste
-        data = input('Enter text: ')
-
-    elif chose == '2':  # File
-        path = input('Enter the path: ')
-        file_ex = Path(path)
-        if file_ex.is_file():
-            file = open(path, 'r')
-            data = file.readline()
-
-            file.close()
-        else:
-            print("File doesn't exist")
-            exit()
-
-    dict_message = decryption.prepare_data(data)  # Split data to 3 names
-
-    #############
     while True:
         # Multiple decoding
         multiple_value = dict_message['seed'][-1:]

@@ -97,7 +97,7 @@ def multiple_encryption_key(seed):
     chars = list(map(chr, range(59, 123))) + list(map(chr, range(33, 48)))
     random.seed(((seed + 777) ** 2) / 0.1943)
     # for safety
-    x = random.randint(1, len(chars)-1)
+    x = random.randint(1, len(chars)-2)
     last_encrypting = [chars[x]]
     chars.pop(x)
     more_encrypting = [chars[x]]
