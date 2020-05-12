@@ -7,10 +7,12 @@ import random
 def encryption_procedure():
     #  Input data
     massage_to_encrypt = (input('Enter massage to encrypt: '))  # entering message
-    print('----------------------- \n'
-          'Do you want use custom seed? \n'
-          '1.Yes \n'
-          '2.No')
+    print("""\
+-----------------------
+Do you want use custom seed? 
+ 1.Yes 
+ 2.No
+          """)
     chose = str(input('Your chose: '))
     if chose == '1':
         custom_seed = str(input('Your seed: '))
